@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import { forecastDay, forecastType, weatherType } from './types'
+import { forecastDay, weatherType } from './types'
 import WeatherCard from './components/WeatherCard'
 
 
 
 function App() {
   const [weather, setWeather] = useState<weatherType | null>(null)
-  const [loading, setLoading] = useState<Boolean>(true)
-  const [error, setError] = useState<Boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<boolean>(false)
   const [weatherForecast, setWeatherForecast] = useState<forecastDay[]>([])
   const [weatherToday, setWeatherToday] = useState<forecastDay>({} as forecastDay)
 
@@ -47,7 +46,7 @@ function App() {
         setError(false)
         return data;
       }
-      catch (err:string | unknown) {
+      catch (err) {
         console.error(err)
         setError(true)
         setWeather(null)
@@ -62,12 +61,6 @@ function App() {
       </div>
     )
   }
-
-  // console.log(weather)
-  // console.log(`sää tänään :`)
-  // console.log(weatherToday)
-  // console.log(weatherForecast)
-
 
 
   if (error) {
